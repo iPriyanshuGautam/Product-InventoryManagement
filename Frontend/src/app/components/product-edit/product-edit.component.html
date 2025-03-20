@@ -1,0 +1,43 @@
+<div class="container">
+  <mat-card class="form-card">
+    <div class="header">
+      <h2>Edit Product</h2>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field>
+        <mat-label>Product Name</mat-label>
+        <input matInput [(ngModel)]="product.name">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Manufacturer</mat-label>
+        <input matInput [(ngModel)]="product.manufacturer">
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput type="number" [(ngModel)]="product.price">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Quantity</mat-label>
+        <input matInput type="number" [(ngModel)]="product.quantity">
+      </mat-form-field>
+    </div>
+
+    <div class="form-row">
+      <mat-form-field class="full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="product.description"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="button-group">
+      <button mat-raised-button color="primary" (click)="updateProduct()">Update Product</button>
+      <button mat-raised-button color="warn" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </mat-card>
+</div>

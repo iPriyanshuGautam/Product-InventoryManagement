@@ -1,0 +1,14 @@
+<div class="container" *ngIf="product">
+  <div class="name-section">
+    <h1>{{ product.name }}</h1>
+  </div>
+  <div class="details-section">
+    <mat-card class="details-card">
+      <p><strong>Description:</strong> {{ product.description }}</p>
+      <p><strong>Manufacturer:</strong> {{ product.manufacturer }}</p>
+      <p><strong>Price:</strong> ₹{{ product.price }}</p>
+      <p><strong>Quantity:</strong> {{ product.quantity }}</p>
+      <button mat-raised-button color="primary" [routerLink]="['/products']">Back to List</button>
+    </mat-card>
+  </div>
+</div>

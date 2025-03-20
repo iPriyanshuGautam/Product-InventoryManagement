@@ -1,0 +1,53 @@
+<div class="container">
+  <h2>Product List</h2>
+
+  <div class="actions">
+    <mat-form-field appearance="fill">
+      <mat-label>Sort by Category</mat-label>
+      <mat-select [(ngModel)]="selectedCategory">
+        <mat-option *ngFor="let category of categories" [value]="category">
+          {{ category }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <span class="spacer"></span>
+
+    <button mat-raised-button color="primary" routerLink="/products/add">Add Product</button>
+  </div>
+
+  <table mat-table [dataSource]="filteredProducts" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let product">{{ product.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let product">{{ product.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let product">{{ product.price }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>Category</th>
+      <td mat-cell *matCellDef="let product">{{ product.category }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let product">
+        <button mat-button color="primary" [routerLink]="['/products', product.id]">View</button>
+        <button mat-button color="accent" [routerLink]="['/products/edit', product.id]">Edit</button>
+        <button mat-button color="warn" (click)="deleteProduct(product.id)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['id', 'name', 'price', 'category', 'actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'price', 'category', 'actions'];"></tr>
+  </table>
+</div>

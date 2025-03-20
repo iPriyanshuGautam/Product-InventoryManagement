@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <span class="title">Product Inventory</span>
+  <span class="spacer"></span>
+  <button mat-button (click)="handleAuth()">
+    {{ isLoggedIn ? 'Logout' : 'Login' }}
+  </button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
