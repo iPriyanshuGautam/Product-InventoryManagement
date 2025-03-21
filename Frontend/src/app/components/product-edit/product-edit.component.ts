@@ -24,6 +24,7 @@ export class ProductEditComponent implements OnInit {
     quantity: 0,
     description: ''
   };
+  productForm: any;
 
   constructor(
     private route: ActivatedRoute,
